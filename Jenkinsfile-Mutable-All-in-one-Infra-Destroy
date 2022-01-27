@@ -16,7 +16,7 @@ pipeline {
     stage('FRONTEND') {
       steps {
         dir('frontend') {
-          git branch: 'main', url: "https://github.com/raghudevopsb61/frontend.git"
+          git branch: 'main', url: "https://github.com/ajitnitr/frontend.git"
           sh '''
                 export TF_VAR_APP_VERSION=1.0.1
                 cd terraform-mutable
@@ -33,7 +33,7 @@ pipeline {
         stage('CART') {
           steps {
             dir('cart') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/cart.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/cart.git"
               sh '''
                 export TF_VAR_APP_VERSION=1.0.0
                 cd terraform-mutable
@@ -47,7 +47,7 @@ pipeline {
         stage('CATALOGUE') {
           steps {
             dir('catalogue') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/catalogue.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/catalogue.git"
               sh '''
                 export TF_VAR_APP_VERSION=1.0.0
                 cd terraform-mutable
@@ -61,7 +61,7 @@ pipeline {
         stage('USER') {
           steps {
             dir('user') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/user.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/user.git"
               sh '''
                 export TF_VAR_APP_VERSION=1.0.0
                 cd terraform-mutable
@@ -75,7 +75,7 @@ pipeline {
         stage('SHIPPING') {
           steps {
             dir('shipping') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/shipping.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/shipping.git"
               sh '''
                 export TF_VAR_APP_VERSION=1.0.1
                 cd terraform-mutable
@@ -89,7 +89,7 @@ pipeline {
         stage('PAYMENT') {
           steps {
             dir('payment') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/payment.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/payment.git"
               sh '''
                 export TF_VAR_APP_VERSION=1.0.0
                 cd terraform-mutable
@@ -103,7 +103,7 @@ pipeline {
         stage('DISPATCH') {
           steps {
             dir('dispatch') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/dispatch.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/dispatch.git"
               sh '''
                 export TF_VAR_APP_VERSION=1.0.0
                 cd terraform-mutable
@@ -123,7 +123,7 @@ pipeline {
         stage('DB') {
           steps {
             dir('db') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/terraform-db.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/terraform-db.git"
               sh '''
                 terraform init -backend-config=env/${ENV}-backend.tfvars
                 terraform destroy -auto-approve -var-file=env/${ENV}.tfvars
@@ -135,7 +135,7 @@ pipeline {
         stage('ALB') {
           steps {
             dir('alb') {
-              git branch: 'main', url: "https://github.com/raghudevopsb61/terrafrom-mutable-alb.git"
+              git branch: 'main', url: "https://github.com/ajitnitr/terrafrom-mutable-alb.git"
               sh '''
                 terraform init -backend-config=env/${ENV}-backend.tfvars
                 terraform destroy -auto-approve -var-file=env/${ENV}.tfvars
@@ -153,7 +153,7 @@ pipeline {
     stage('VPC') {
       steps {
         dir('vpc') {
-          git branch: 'main', url: "https://github.com/raghudevopsb61/terraform-vpc.git"
+          git branch: 'main', url: "https://github.com/ajitnitr/terraform-vpc.git"
           sh '''
             terraform init -backend-config=env/${ENV}-backend.tfvars
             terraform destroy -auto-approve -var-file=env/${ENV}.tfvars -target=aws_nat_gateway.ngw
