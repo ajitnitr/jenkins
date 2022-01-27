@@ -18,7 +18,7 @@ pipeline {
     stage('Get Git Repo') {
       steps {
         dir('code') {
-          git branch: 'main', url: "https://github.com/raghudevopsb61/${COMPONENT}.git"
+          git branch: 'main', url: "https://github.com/ajitnitr/${COMPONENT}.git"
         }
       }
     }
