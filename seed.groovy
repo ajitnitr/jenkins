@@ -25,7 +25,7 @@ pipelineJob('roboshop-ansible') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/raghudevopsb61/ansible.git')
+            'url'('https://github.com/ajitnitr/ansible.git')
           }
         }
         'branches' {
@@ -57,7 +57,7 @@ for(i in 0..SIZE) {
         'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
           'userRemoteConfigs' {
             'hudson.plugins.git.UserRemoteConfig' {
-              'url'("https://github.com/raghudevopsb61/${j}.git")
+              'url'("https://github.com/ajitnitr/${j}.git")
             }
           }
           'branches' {
@@ -84,7 +84,7 @@ pipelineJob('Mutable/VPC') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/raghudevopsb61/terraform-vpc.git')
+            'url'('https://github.com/ajitnitr/terraform-vpc.git')
           }
         }
         'branches' {
@@ -105,7 +105,7 @@ pipelineJob('Mutable/APP-SETUP') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/raghudevopsb61/jenkins.git')
+            'url'('https://github.com/ajitnitr/jenkins.git')
           }
         }
         'branches' {
@@ -126,7 +126,7 @@ pipelineJob('Mutable/ALB') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/raghudevopsb61/terrafrom-mutable-alb.git')
+            'url'('https://github.com/ajitnitr/terrafrom-mutable-alb.git')
           }
         }
         'branches' {
@@ -147,7 +147,7 @@ pipelineJob('Mutable/DB') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('git@github.com:raghudevopsb61/terraform-db.git')
+            'url'('git@github.com:ajitnitr/terraform-db.git')
           }
         }
         'branches' {
@@ -169,7 +169,7 @@ pipelineJob('Mutable/All-Infra-Create') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/raghudevopsb61/jenkins.git')
+            'url'('https://github.com/ajitnitr/jenkins.git')
           }
         }
         'branches' {
@@ -190,7 +190,7 @@ pipelineJob('Mutable/All-Infra-Destroy') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://github.com/raghudevopsb61/jenkins.git')
+            'url'('https://github.com/ajitnitr/jenkins.git')
           }
         }
         'branches' {
