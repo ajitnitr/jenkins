@@ -20,7 +20,8 @@ stages:
       - job: DockerBuild
         steps:
           - script: |
-              docker build -t ${COMPONENT} .
+              echo "i m here"    
+              docker build -t catalogue .
 
   - stage: DockerPush
     condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
