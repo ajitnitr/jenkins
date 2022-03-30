@@ -13,15 +13,12 @@ stages:
         steps:
           - script: |
               echo unit test check
-
-
   - stage: DockerBuild
     jobs:
       - job: DockerBuild
         steps:
           - script: |
-              echo "i m here"    
-              docker build -t catalogue .
+              docker build -t ${COMPONENT} .
 
   - stage: DockerPush
     condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
