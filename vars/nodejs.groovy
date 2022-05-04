@@ -10,8 +10,7 @@ def call() {
 
     environment {
       PROG_LANG_NAME = "nodejs"
-      PROG_LANG_VERSION = "10"
-      NEXUS = credentials('NEXUS')
+      PROG_LANG_VERSION = "6"
     }
 
     stages {
@@ -19,7 +18,7 @@ def call() {
       stage('Label Builds') {
         steps {
           script {
-            env.gitTag = GIT_BRANCH.split('/').last()
+            def gitTag = GIT_BRANCH.split('/').last()
             addShortText background: 'white', borderColor: 'white', color: 'red', link: '', text: "${gitTag}"
           }
         }
@@ -69,3 +68,4 @@ def call() {
 
   }
 }
+
