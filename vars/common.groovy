@@ -13,49 +13,15 @@ def publishArtifacts() {
 //  } else {
 //    Utils.markStageSkippedForConditional('Publish Artifacts')
 //  }
-  sh '''
-    curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${gitTag}.zip http://nexus.ajitdevops-internal:8081/repository/${COMPONENT}/${COMPONENT}-${gitTag}.zip
-  '''
+
 }
 
 def prepareArtifacts() {
-  if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "10") {
+  if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "6") {
     sh '''
-      npm install 
-      ls -ltr
+      echo hello
+      echo bye
     '''
   }
-
-  if(env.PROG_LANG_NAME == "java" && env.PROG_LANG_VERSION == "1.8") {
-    sh '''
-      mvn clean package 
-      mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
-      zip -r ${COMPONENT}-${gitTag}.zip ${COMPONENT}.jar
-    '''
-  }
-
-  if(env.PROG_LANG_NAME == "python" && env.PROG_LANG_VERSION == "3") {
-    sh '''
-      zip -r ${COMPONENT}-${gitTag}.zip requirements.txt *.py ${COMPONENT}.ini
-    '''
-  }
-
-
-  if(env.PROG_LANG_NAME == "golang" && env.PROG_LANG_VERSION == "1.5") {
-    sh '''
-      go mod init dispatch
-      go get 
-      go build 
-      zip -r ${COMPONENT}-${gitTag}.zip ${COMPONENT}
-    '''
-  }
-
-  if(env.PROG_LANG_NAME == "angular") {
-    sh '''
-      cd static
-      zip -r ../${COMPONENT}-${gitTag}.zip * 
-    '''
-  }
-
-
 }
+
