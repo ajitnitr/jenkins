@@ -28,19 +28,13 @@ def call() {
       stage('Test Cases') {
         steps {
           sh 'echo Test Cases'
-          sh 'env'
         }
-
       }
 
       stage('Publish Artifacts') {
-        when {
-          buildingTag()
-        }
         steps {
           script {
-            //common.publishArtifacts()
-            println 'Publish Artifacts'
+            common.publishArtifacts()
           }
         }
       }
@@ -55,3 +49,4 @@ def call() {
 
   }
 }
+
