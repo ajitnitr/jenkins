@@ -14,4 +14,3 @@ def publishArtifacts() {
     Utils.markStageSkippedForConditional('Publish Artifacts')
   }
 }
-
