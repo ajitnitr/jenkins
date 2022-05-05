@@ -35,6 +35,7 @@ def call() {
         steps {
           script {
             sh 'echo publish artifact'
+            sh 'env'
           }
         }
       }
