@@ -34,7 +34,7 @@ def call() {
       stage('Publish Artifacts') {
         steps {
           script {
-            common.publishArtifacts()
+            sh 'echo publish artifact'
           }
         }
       }
