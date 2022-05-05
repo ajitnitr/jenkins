@@ -8,20 +8,10 @@ def sonarQube() {
 }
 
 def publishArtifacts() {
-//  if(env.GIT_BRANCH == "*tag*") {
-//    println 'Ran on Tag'
-//  } else {
-//    Utils.markStageSkippedForConditional('Publish Artifacts')
-//  }
-
-}
-
-def prepareArtifacts() {
-  if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "10") {
-    sh '''
-      echo hello
-      echo bye
-    '''
+  if(env.GIT_BRANCH == "*tag*") {
+    println 'Ran on Tag'
+  } else {
+    Utils.markStageSkippedForConditional('Publish Artifacts')
   }
 }
 
