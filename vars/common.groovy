@@ -13,15 +13,21 @@ def publishArtifacts() {
 //  } else {
 //    Utils.markStageSkippedForConditional('Publish Artifacts')
 //  }
-
+  sh '''
+    curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${gitTag}.zip http://nexus.ajitdevops-internal:8081/repository/${COMPONENT}/${COMPONENT}-${gitTag}.zip
+  '''
 }
 
 def prepareArtifacts() {
-  if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "6") {
+  if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "10") {
     sh '''
-      echo hello
-      echo bye
+      npm install 
+      zip -r ${COMPONENT}-${gitTag}.zip node_modules server.js
+      ls -ltr
     '''
   }
+  // Java
+  // Python
+  // Golang
 }
 
